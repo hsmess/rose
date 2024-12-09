@@ -1,4 +1,7 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+import forms from '@tailwindcss/forms'
+
+export default {
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
@@ -13,7 +16,6 @@ module.exports = {
     },
   },
   plugins: [
-    // eslint-disable-next-line global-require
-    require('@tailwindcss/forms'),
+    forms,
   ],
 };

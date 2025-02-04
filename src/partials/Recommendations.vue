@@ -59,7 +59,7 @@ onMounted(() => {
       pauseCarousel()
     }
   }, true)
-  container.value.addEventListener('blur', (event) => {
+  container.value.addEventListener('blur-sm', (event) => {
     if (event.currentTarget && !(event.currentTarget).contains(event.relatedTarget)) {
       playCarousel()
     }
@@ -77,7 +77,7 @@ onBeforeUnmount(() => {
       pauseCarousel()
     }
   }, true)
-  container.value.removeEventListener('blur', (event) => {
+  container.value.removeEventListener('blur-sm', (event) => {
     if (event.currentTarget && !(event.currentTarget).contains(event.relatedTarget)) {
       playCarousel()
     }
@@ -142,7 +142,7 @@ const setActiveState = () => {
       <div class="[mask-image:_linear-gradient(to_right,black_50%,transparent_90%)] md:[mask-image:_linear-gradient(to_right,transparent_48px,black_64px,black_50%,transparent_90%)] -mx-3 md:-mx-16">
         <div ref="container" class="flex gap-4 px-3 md:px-16 transition-transform duration-500 ease-in-out">
           <template v-for="item in items">
-            <article class="shrink-0 w-[66.6667%] p-5 rounded-xl relative before:absolute before:inset-0 before:rounded-[inherit] before:-z-10 before:transition before:duration-300 data-[state=active]:before:bg-gradient-to-tr data-[state=active]:before:from-gray-100 data-[state=active]:before:to-gray-50 dark:data-[state=active]:before:bg-gradient-to-tr dark:data-[state=active]:before:from-gray-800 dark:data-[state=active]:before:to-gray-800/[0.65] before:opacity-0 data-[state=active]:before:opacity-100">
+            <article class="shrink-0 w-[66.6667%] p-5 rounded-xl relative before:absolute before:inset-0 before:rounded-[inherit] before:-z-10 before:transition before:duration-300 data-[state=active]:before:bg-linear-to-tr data-[state=active]:before:from-gray-100 data-[state=active]:before:to-gray-50 dark:data-[state=active]:before:bg-linear-to-tr dark:data-[state=active]:before:from-gray-800 dark:data-[state=active]:before:to-gray-800/[0.65] before:opacity-0 data-[state=active]:before:opacity-100">
               <div class="flex items-center space-x-3 mb-4">
                 <img class="shrink-0 w-11 h-11 rounded-full shadow-lg" :src="item.image" width="44" height="44" :alt="item.name" />
                 <div>

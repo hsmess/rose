@@ -33,10 +33,10 @@ const items = [
     <div class="space-y-1">
       <template v-for="item in items">
         <article
-          class="p-5 rounded-xl odd:bg-gradient-to-tr odd:from-gray-100 odd:to-gray-50 dark:odd:bg-gradient-to-tr dark:odd:from-gray-800 dark:odd:to-gray-800/[0.65]">
+          class="p-5 rounded-xl odd:bg-linear-to-tr odd:from-gray-100 odd:to-gray-50 dark:odd:bg-linear-to-tr dark:odd:from-gray-800 dark:odd:to-gray-800/[0.65]">
           <div class="sm:flex gap-5">
             <div
-              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-sm max-sm:mb-3 sm:mt-5" v-html="item.icon"></div>
+              class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-xs max-sm:mb-3 sm:mt-5" v-html="item.icon"></div>
             <div>
               <div class="space-y-1.5 mb-3">
                 <div class="text-[13px] italic text-gray-500/70">{{ item.date }}</div>

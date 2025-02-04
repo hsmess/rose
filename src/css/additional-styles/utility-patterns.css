@@ -15,7 +15,7 @@
     @apply text-lg font-[650];
 }
 
-@screen md {
+@media (width >= theme(--breakpoint-md)) {
     .h1 {
         @apply text-5xl;
     }
@@ -57,14 +57,14 @@ input[type="search"]::-webkit-search-results-decoration {
 .form-select,
 .form-checkbox,
 .form-radio {
-    @apply bg-gray-100 border border-gray-100 focus:border-sky-500 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-sky-500;
+    @apply bg-gray-100 border border-gray-100 focus:border-sky-500 dark:bg-gray-700 dark:border-gray-700 focus:ring-0 focus:ring-offset-0;
 }
 
 .form-input,
 .form-textarea,
 .form-multiselect,
 .form-select {
-    @apply text-sm px-3 py-2 rounded-full;
+    @apply text-sm px-3 py-2 rounded-full dark:focus:border-sky-500;
 }
 
 .form-input,
@@ -78,7 +78,11 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-checkbox,
 .form-radio {
-    @apply text-sky-500 border-2 rounded-sm;
+    @apply text-sky-500 checked:bg-sky-600 checked:border-transparent dark:focus-visible:not-checked:border-sky-500;
+}
+
+.form-checkbox {
+    @apply rounded-xs;
 }
 
 /* Chrome, Safari and Opera */

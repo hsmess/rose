@@ -11,7 +11,7 @@
       <!-- Social icons -->
       <ul class="inline-flex gap-4">
         <li>
-          <a class="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+          <a class="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-xs text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
             href="#0" aria-label="X">
             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="14">
               <path
@@ -20,7 +20,7 @@
           </a>
         </li>
         <li>
-          <a class="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+          <a class="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-xs text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
             href="#0" aria-label="GitHub">
             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
               <path
@@ -29,7 +29,7 @@
           </a>
         </li>
         <li>
-          <a class="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-sm text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
+          <a class="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-xs text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100 transition-colors"
             href="#0" aria-label="Facebook">
             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="10" height="15">
               <path

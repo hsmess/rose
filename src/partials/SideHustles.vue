@@ -21,7 +21,7 @@ const items = [
     <div class="grid min-[580px]:grid-cols-2 gap-4">
       <template v-for="item in items">
         <article
-          class="relative p-5 rounded-xl odd:bg-gradient-to-tr odd:from-gray-100 odd:to-gray-50 dark:odd:bg-gradient-to-tr dark:odd:from-gray-800 dark:odd:to-gray-800/[0.65] group">
+          class="relative p-5 rounded-xl odd:bg-linear-to-tr odd:from-gray-100 odd:to-gray-50 dark:odd:bg-linear-to-tr dark:odd:from-gray-800 dark:odd:to-gray-800/[0.65] group">
           <div
             class="absolute top-5 right-7 text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-400 group-hover:rotate-45 transition"
             aria-hidden="true">
@@ -31,7 +31,7 @@ const items = [
             </svg>
           </div>
           <div
-            class="w-11 h-11 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-sm mb-4"
+            class="w-11 h-11 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-xs mb-4"
             v-html="item.icon"></div>
           <div class="space-y-1">
             <h3 class="font-semibold text-gray-800 dark:text-gray-100">

@@ -22,9 +22,9 @@ const items = [
     <div class="grid min-[580px]:grid-cols-2 gap-4 group">
       <template v-for="item in items">
         <article
-          class="relative aspect-video rounded-xl shadow-lg overflow-hidden min-[580px]:odd:-rotate-2 min-[580px]:even:rotate-2 group-hover:rotate-0 transition duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)]">
+          class="relative aspect-video rounded-xl shadow-lg overflow-hidden min-[580px]:odd:-rotate-2 min-[580px]:even:rotate-2 even:group-hover:rotate-0 odd:group-hover:rotate-0 transition duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)]">
           <figure
-            class="absolute inset-0 before:absolute before:inset-0 before:bg-gradient-to-t before:to-75% before:from-gray-950/50 before:to-transparent">
+            class="absolute inset-0 before:absolute before:inset-0 before:bg-linear-to-t before:to-75% before:from-gray-950/50 before:to-transparent">
             <img class="h-full w-full object-cover" :src="item.image" width="600" height="338" :alt="item.title" />
           </figure>
           <div class="relative flex flex-col justify-end h-full w-full px-6 py-5">

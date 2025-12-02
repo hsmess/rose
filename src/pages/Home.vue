@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import Header from '../partials/Header.vue'
 import Experience from '../partials/Experience.vue'
 import Tutorials from '../partials/Tutorials.vue'
@@ -7,6 +8,13 @@ import Footer from '../partials/Footer.vue'
 import SideHustles from '../partials/SideHustles.vue'
 import Recommendations from '../partials/Recommendations.vue'
 import Newsletter from '../partials/Newsletter.vue'
+import Countdown from '../partials/Countdown.vue'
+
+const showContent = ref(false)
+
+const handleCountdownFinished = () => {
+  showContent.value = true
+}
 </script>
 
 <template>
@@ -15,20 +23,26 @@ import Newsletter from '../partials/Newsletter.vue'
       <div class="w-full bg-white dark:bg-gray-900 border-x border-gray-100 dark:border-gray-800 box-content">
         <div class="px-3 md:px-16">
           <div class="flex flex-col min-h-screen">
-            <Header />
 
-            <main class="grow py-12 space-y-12">
+            <!-- Countdown Screen -->
+            <Countdown v-if="!showContent" @countdown-finished="handleCountdownFinished" />
 
-              <Experience />
-              <Tutorials />
-              <Articles />
-              <SideHustles />
-              <Recommendations />
-              <Newsletter />
+            <!-- Main Content (hidden until countdown finishes) -->
+            <template v-else>
+              <Header />
 
-            </main>
+              <main class="grow py-12 space-y-12">
+                <Experience />
+                <Tutorials />
+                <Articles />
+                <SideHustles />
+                <Recommendations />
+                <Newsletter />
+              </main>
 
-            <Footer />
+              <Footer />
+            </template>
+
           </div>
         </div>
       </div>

@@ -16,9 +16,13 @@ const router = createRouter({
   history: routerHistory,
   routes: [
     {
-      path: '/',
+      path: '/rose',
       component: Home
     },
+    {
+      path: '/:catchAll(.*)*',
+      redirect: '/rose'
+    }
   ]
 })
 

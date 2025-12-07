@@ -10,7 +10,7 @@ import Recommendations from '../partials/Recommendations.vue'
 import Newsletter from '../partials/Newsletter.vue'
 import Countdown from '../partials/Countdown.vue'
 
-const showContent = ref(false)
+const showContent = ref(true)
 
 const handleCountdownFinished = () => {
   showContent.value = true
@@ -32,12 +32,13 @@ const handleCountdownFinished = () => {
               <Header />
 
               <main class="grow py-12 space-y-12">
-                <Experience />
                 <Tutorials />
-                <Articles />
+                <Experience />
+
+<!--                <Articles />-->
                 <SideHustles />
-                <Recommendations />
-                <Newsletter />
+<!--                <Recommendations />-->
+<!--                <Newsletter />-->
               </main>
 
               <Footer />

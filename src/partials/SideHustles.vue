@@ -1,41 +1,47 @@
-<script setup>
+vue<script setup>
 const items = [
   {
-    title: 'Tail Library',
-    link: "#0",
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path fill="#FF6E1C" fill-rule="evenodd" d="M6.857 0C5.73 0 4.647.448 3.85 1.246L0 5.096v1.761C0 8.102.535 9.222 1.387 10A4.243 4.243 0 0 0 0 13.143v1.762l3.85 3.85a4.254 4.254 0 0 0 6.15-.142 4.254 4.254 0 0 0 6.15.141l3.85-3.85v-1.761A4.243 4.243 0 0 0 18.613 10 4.243 4.243 0 0 0 20 6.857V5.095l-3.85-3.85a4.254 4.254 0 0 0-6.15.142A4.243 4.243 0 0 0 6.857 0Zm6.022 10a4.314 4.314 0 0 1-.14-.135L10 7.127 7.262 9.865A4.264 4.264 0 0 1 7.12 10c.048.044.095.089.14.135L10 12.873l2.738-2.738c.046-.046.094-.091.141-.135Zm-1.768 4.905v.841a2.032 2.032 0 0 0 3.468 1.437l3.199-3.199v-.841a2.032 2.032 0 0 0-3.468-1.437l-3.199 3.199Zm-2.222 0L5.69 11.706a2.032 2.032 0 0 0-3.468 1.437v.841l3.199 3.199a2.032 2.032 0 0 0 3.468-1.437v-.841Zm0-10.651v.841L5.69 8.294a2.032 2.032 0 0 1-3.468-1.437v-.841l3.199-3.199a2.032 2.032 0 0 1 3.468 1.437Zm5.42 4.04-3.198-3.199v-.841a2.032 2.032 0 0 1 3.468-1.437l3.199 3.199v.841a2.032 2.032 0 0 1-3.468 1.437Z" /></svg>',
-    description: 'An easy-to-use components library based on Tailwind CSS.'
+    title: 'Accessible for women',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>',
+    color: 'text-pink-500',
+    description: 'Portaloo or bathroom facilities at all courses, sanitary supplies available at events, accessible layouts, and opportunities to sign up with a friend and be on the same card in the first round.'
   },
   {
-    title: 'KumoNext',
-    link: "#0",
-    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path fill="#17CF97" d="M4.998 10a5 5 0 1 0-5-5v5h5Zm10 0a5 5 0 1 0 5 5v-5h-5Z" /><path fill="#0D9F73" d="M14.998 0a5 5 0 1 1-5 5V0h5Zm-10 20a5 5 0 1 1 5-5v5h-5Z" /></svg>',
-    description: 'A free frontend framework based on Tailwind CSS and Next.js.'
+    title: 'A great first event',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+    color: 'text-green-500',
+    description: 'Shorter layouts, beginner divisions (MA4 and FA4) available, opportunities to sign up with a friend and be on the same card in the first round, plus a free disc if it\'s your first ever PDGA event.'
+  },
+  {
+    title: 'Masters (40+) accessible events',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    color: 'text-blue-500',
+    description: 'Masters divisions running for 40+, 50+ and 60+, one day events, and option to play only one round at 2-round events (flex starts are only 1 round anyway).'
+  },
+  {
+    title: 'Off season social activity',
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    color: 'text-orange-500',
+    description: 'Community events like disc swaps being organised, hopefully having a retailer at some events, and shotgun starts with lunch break together.'
   },
 ]
 </script>
 
 <template>
   <section>
-    <h2 class="font-inter-tight text-lg font-semibold text-gray-800 dark:text-gray-100 mb-6">Side Hustles</h2>
+    <h2 class="font-inter-tight text-lg font-semibold text-gray-800 dark:text-gray-100 mb-6">Events for everyone</h2>
     <div class="grid min-[580px]:grid-cols-2 gap-4">
-      <template v-for="item in items">
+      <template v-for="(item, index) in items">
         <article
-          class="relative p-5 rounded-xl odd:bg-linear-to-tr odd:from-gray-100 odd:to-gray-50 dark:odd:bg-linear-to-tr dark:odd:from-gray-800 dark:odd:to-gray-800/[0.65] group">
+            class="p-5 rounded-xl"
+            :class="[index === 0 || index === 3 ? 'bg-linear-to-tr from-gray-100 to-gray-50 dark:bg-linear-to-tr dark:from-gray-800 dark:to-gray-800/[0.65]' : '']">
           <div
-            class="absolute top-5 right-7 text-gray-400 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-400 group-hover:rotate-45 transition"
-            aria-hidden="true">
-            <svg class="fill-current opacity-80 dark:opacity-100" xmlns="http://www.w3.org/2000/svg" width="10"
-              height="10">
-              <path d="M1.018 10 0 8.983l7.572-7.575H1.723L1.736 0H10v8.266H8.577l.013-5.841L1.018 10Z" />
-            </svg>
-          </div>
-          <div
-            class="w-11 h-11 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-xs mb-4"
-            v-html="item.icon"></div>
+              class="w-11 h-11 rounded-full flex items-center justify-center bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600/[0.65] shadow-xs mb-4"
+              :class="item.color"
+              v-html="item.icon"></div>
           <div class="space-y-1">
             <h3 class="font-semibold text-gray-800 dark:text-gray-100">
-              <a class="before:absolute before:inset-0" :href="item.link">{{ item.title }}</a>
+              {{ item.title }}
             </h3>
             <p class="text-sm text-gray-600 dark:text-gray-400">{{ item.description }}</p>
           </div>

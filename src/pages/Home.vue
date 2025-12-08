@@ -10,7 +10,7 @@ import Recommendations from '../partials/Recommendations.vue'
 import Newsletter from '../partials/Newsletter.vue'
 import Countdown from '../partials/Countdown.vue'
 
-const showContent = ref(false)
+const showContent = ref(true)
 
 const handleCountdownFinished = () => {
   showContent.value = true

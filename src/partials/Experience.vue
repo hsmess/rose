@@ -11,7 +11,7 @@ const items = [
   {
     title: 'ROSE Cannock',
     link: "#0",
-    date: 'January 24th 2026, 10am',
+    date: 'January 24th 2026, 10am*',
     icon: 'https://aardvark-cdn.s3.eu-west-2.amazonaws.com/calendar-jan-24.svg',
     location: 'Cannock Chase, WS12 4PW',
     description: 'The first ever PDGA sanctioned disc golf tournament at a Forestry England property, this tournament will be 4 loops of 9 holes (marked as 2x18 in PDGA) making the maximum players 36 in total!'
@@ -27,9 +27,9 @@ const items = [
   {
     title: 'ROSE Delemere',
     link: "#0",
-    date: 'February 21st 2026, 10:30am',
+    date: 'February 21st 2026, 10:30am*',
     icon: 'https://aardvark-cdn.s3.eu-west-2.amazonaws.com/calendar-feb-21.svg',
-    location: 'London, UK',
+    location: 'Cheshire, WA6 6NB',
     description: 'Another tournament first, the 9-hole layout at Delemere is slightly tricky and at an absolutely beautiful forest park. This would make an excellent first wooded event for those in the North of England, or a really fun challenge for any competitive player!'
   },
   {
@@ -66,6 +66,8 @@ const items = [
           </div>
         </article>
       </template>
+      <p class="text-xs font-medium text-gray-400">Please note: Forestry England events are pending final confirmation</p>
+
       <div class="pt-2 pb-2">
         Flex Start Events
         <div class="text-[13px] pt-2 italic text-gray-500/70">Please stay tuned for news of Flex Start Events. There will likely be at least two, cost £10 to enter, one round with a group of your choosing</div>

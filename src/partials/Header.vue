@@ -14,7 +14,8 @@ import ThemeToggle from './ThemeToggle.vue'
         <p class="text-sm text-gray-600 dark:text-gray-400">A series of one day Disc Golf events coming to the UK in 2026</p>
       </div>
       <a class="btn-sm text-gray-200 dark:text-gray-800 bg-linear-to-r from-gray-800 to-gray-700 dark:from-gray-300 dark:to-gray-100 dark:hover:bg-gray-100 shadow-xs relative before:absolute before:inset-0 before:rounded-[inherit] before:bg-linear-[45deg,transparent_25%,var(--color-white)_50%,transparent_75%,transparent_100%] before:opacity-20 dark:before:opacity-100 dark:before:bg-linear-[45deg,transparent_25%,var(--color-white)_50%,transparent_75%,transparent_100%] before:bg-[length:250%_250%,100%_100%] before:bg-[position:200%_0,0_0] before:bg-no-repeat before:[transition:background-position_0s_ease] hover:before:bg-[position:-100%_0,0_0] hover:before:duration-1500"
-        href="#0">Buy season pass</a>
+        href="https://tjing.se/tour/e4dafa83-dd1c-4e67-8dd3-8125a81afecb/">Buy season pass</a>
+      <div class="mt-2 mb-2 text-sm text-red-400">Pass on sale from Wednesday 10th December at 6pm - Only 18 available</div>
       <div class="mt-4 mb-4">
         <p class="text-sm text-gray-600 dark:text-gray-400">Ratatoskr Disc Golf Events, founded in late 2022 by Harry Messenger, 2-time BDGA TD of the year, is an English based company running some of the UK's highest quality and most inclusive events, including the British National Championships as well as the British Champs</p>
         <p class="pt-2 text-sm text-gray-600 dark:text-gray-400">Now focussing on a more accessible, cheaper one-day event series, ROSE is the result of community consultation and attempts to fill a gap in the amaetur one-day event market here in the UK.</p>

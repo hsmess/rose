@@ -46,6 +46,7 @@ const items = [
 <template>
   <section>
     <h2 class="font-inter-tight text-lg font-semibold text-gray-800 dark:text-gray-100 mb-6">Events</h2>
+    <div class="mt-2 mb-2 text-sm text-red-400">Event registration opening Monday 15th at 6pm</div>
     <div class="space-y-1">
       <template v-for="item in items">
         <article

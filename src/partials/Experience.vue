@@ -6,7 +6,7 @@ const items = [
     icon: 'https://aardvark-cdn.s3.eu-west-2.amazonaws.com/calendar-jan-10.svg',
     date: 'January 10th 2026, 10am',
     location: 'Stratford-upon-Avon, CV37 0JA',
-    description: 'Starting the series at one of Harry\'s favourite places to play in England, this 2-day, 2 round PDGA C-tier will be the ROSE Kickoff event. A perfect first tournament, fun in the woods for all!'
+    description: 'Starting the series at one of Harry\'s favourite places to play in England, this one-day, 2 round PDGA C-tier will be the ROSE Kickoff event. A perfect first tournament, fun in the woods for all!'
   },
   {
     title: 'ROSE Cannock',

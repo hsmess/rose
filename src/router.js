@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from './pages/Home.vue'
+import ComingSoon from './pages/ComingSoon.vue'
+import Season2026 from './pages/Season2026.vue'
+import EventPage from './pages/EventPage.vue'
 
 const routerHistory = createWebHistory()
 
@@ -12,16 +14,24 @@ const router = createRouter({
       window.scroll({ top: 0 })
       document.querySelector('html').style.scrollBehavior = ''
     }
-  },  
+  },
   history: routerHistory,
   routes: [
     {
-      path: '/rose',
-      component: Home
+      path: '/',
+      component: ComingSoon
+    },
+    {
+      path: '/2026',
+      component: Season2026
+    },
+    {
+      path: '/events/:slug',
+      component: EventPage
     },
     {
       path: '/:catchAll(.*)*',
-      redirect: '/rose'
+      redirect: '/'
     }
   ]
 })

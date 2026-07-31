@@ -11,11 +11,20 @@ layer(base);
   strategy: base;
 }
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-inter: Inter, sans-serif;
   --font-inter-tight: Inter Tight, sans-serif;
+
+  /* ROSE brand palette, sampled from the logo */
+  --color-rose-red: #c94140;
+  --color-rose-red-dark: #7a2726;
+  --color-rose-green: #56733b;
+  --color-rose-green-dark: #23311c;
+  --color-rose-cream: #f9f0e0;
 }
 
 /*

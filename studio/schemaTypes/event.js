@@ -80,6 +80,14 @@ export default {
               type: 'image',
               options: { hotspot: true },
             },
+            {
+              name: 'hideImageOnMobile',
+              title: 'Hide image on mobile',
+              description: 'Only shows the image on larger screens; text still displays full-width on mobile.',
+              type: 'boolean',
+              initialValue: false,
+              hidden: ({ parent }) => !parent?.image,
+            },
           ],
           preview: {
             select: { title: 'heading', media: 'image' },

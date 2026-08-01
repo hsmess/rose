@@ -26,7 +26,7 @@ const QUERY = `*[_type == "event" && slug.current == $slug][0]{
   status,
   summary,
   carouselImages,
-  sections[]{ heading, body, image },
+  sections[]{ heading, body, image, hideImageOnMobile },
   registrationUrl
 }`
 
@@ -152,7 +152,10 @@ const logoUrl = computed(() => {
                       <div
                         v-if="section.image"
                         class="md:w-2/5 shrink-0"
-                        :class="index % 2 === 1 ? 'md:order-2' : 'md:order-1'"
+                        :class="[
+                          index % 2 === 1 ? 'md:order-2' : 'md:order-1',
+                          section.hideImageOnMobile ? 'hidden md:block' : '',
+                        ]"
                       >
                         <img
                           :src="urlForImage(section.image).width(500).height(500).fit('crop').url()"

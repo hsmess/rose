@@ -30,6 +30,11 @@ const router = createRouter({
       component: EventPage
     },
     {
+      // Short vanity links, e.g. /ripley-26 -> /events/ripley-26
+      path: '/:slug([^/]+)',
+      redirect: (to) => ({ path: `/events/${to.params.slug}` })
+    },
+    {
       path: '/:catchAll(.*)*',
       redirect: '/'
     }

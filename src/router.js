@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ComingSoon from './pages/ComingSoon.vue'
 import Season2026 from './pages/Season2026.vue'
 import EventPage from './pages/EventPage.vue'
+import CaddyBookPage from './pages/CaddyBookPage.vue'
 
 const routerHistory = createWebHistory()
 
@@ -28,6 +29,11 @@ const router = createRouter({
     {
       path: '/events/:slug',
       component: EventPage
+    },
+    {
+      // Printed on the tee signs - do not change this URL format.
+      path: '/live-caddy-book/:layout(p|g)/h:hole(\\d+)',
+      component: CaddyBookPage
     },
     {
       // Short vanity links, e.g. /ripley-26 -> /events/ripley-26

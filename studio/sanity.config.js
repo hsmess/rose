@@ -2,6 +2,9 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemaTypes'
+import CaddyBookUpload from './tools/CaddyBookUpload'
+
+const caddyBookTool = { name: 'caddy-book', title: 'Caddy Book Upload', component: CaddyBookUpload }
 
 const singletonTypes = new Set(['siteSettings', 'comingSoonPage'])
 
@@ -11,6 +14,8 @@ export default defineConfig({
 
   projectId: 'ylota33v',
   dataset: 'production',
+
+  tools: [caddyBookTool],
 
   plugins: [
     structureTool({

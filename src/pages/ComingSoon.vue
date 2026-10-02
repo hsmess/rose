@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import ThemeToggle from '../partials/ThemeToggle.vue'
 import Footer from '../partials/Footer.vue'
 import { sanityClient } from '../lib/sanity'
+import roseLogo from '../images/rose-logo.webp'
 
 // Mailchimp embedded form (Audience > Signup forms > Embedded forms). These values are public by design.
 const MAILCHIMP_ACTION =
@@ -28,6 +29,8 @@ onMounted(async () => {
 })
 
 const email = ref('')
+const firstName = ref('')
+const lastName = ref('')
 const consentGiven = ref(false)
 const showConsentError = ref(false)
 const status = ref('idle') // idle | submitting | success | error
@@ -40,6 +43,8 @@ const subscribe = () =>
     const params = new URLSearchParams(new URL(MAILCHIMP_ACTION).search)
     params.delete('f_id')
     params.set('EMAIL', email.value)
+    params.set('FNAME', firstName.value.trim())
+    params.set('LNAME', lastName.value.trim())
     params.set(MAILCHIMP_BOT_FIELD, '')
     params.set('c', callback)
 
@@ -104,7 +109,7 @@ const handleSubmit = async () => {
 
               <ThemeToggle />
 
-              <img class="inline-flex rounded-2xl shadow-lg mb-8 mx-auto" src="https://aardvark-cdn.s3.eu-west-2.amazonaws.com/RO+SE.png" width="150" height="150" alt="ROSE" />
+              <img class="inline-flex rounded-2xl shadow-lg mb-8 mx-auto" :src="roseLogo" width="150" height="150" alt="ROSE" />
 
               <h1 class="font-inter-tight font-black text-gray-800 dark:text-gray-100 text-6xl sm:text-7xl md:text-8xl leading-[0.95] tracking-tight mb-6">
                 {{ title }}<br />{{ subtitle }}
@@ -116,6 +121,17 @@ const handleSubmit = async () => {
 
               <div class="mt-8 mb-4 max-w-sm mx-auto w-full">
                 <form v-if="status !== 'success'" @submit.prevent="handleSubmit">
+                  <div class="grid grid-cols-2 gap-2 mb-2">
+                    <input
+                      v-model="firstName" type="text" name="FNAME" id="mce-FNAME" autocomplete="given-name"
+                      aria-label="First name (optional)" placeholder="First name (optional)"
+                      class="w-full text-sm bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600 rounded-lg border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-200 dark:focus:border-gray-700 focus:outline-hidden p-2.5" />
+                    <input
+                      v-model="lastName" type="text" name="LNAME" id="mce-LNAME" autocomplete="family-name"
+                      aria-label="Last name (optional)" placeholder="Last name (optional)"
+                      class="w-full text-sm bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600 rounded-lg border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-600 focus:border-gray-200 dark:focus:border-gray-700 focus:outline-hidden p-2.5" />
+                  </div>
+
                   <div class="flex bg-white dark:bg-gray-900 p-2 rounded-lg border border-gray-200 dark:border-gray-700 focus-within:ring-2 ring-gray-300 dark:ring-gray-600">
                     <input
                       class="flex-1 text-sm bg-transparent text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600 border-none focus:ring-0 focus:outline-hidden"
@@ -134,7 +150,7 @@ const handleSubmit = async () => {
                     <input
                       type="checkbox"
                       v-model="consentGiven"
-                      class="mt-0.5 rounded bg-white dark:bg-gray-800 border-gray-400 dark:border-gray-500 text-gray-800 dark:text-gray-200 focus:ring-gray-400 dark:focus:ring-gray-500"
+                      class="mt-0.5 rounded bg-white dark:bg-gray-800 border-gray-400 dark:border-gray-500 checked:bg-rose-red dark:checked:bg-rose-red checked:border-rose-red dark:checked:border-rose-red focus:ring-gray-400 dark:focus:ring-gray-500"
                       @change="showConsentError = false"
                     />
                     <span>I agree to receive email updates about ROSE events. You can unsubscribe at any time using the link in every email.</span>

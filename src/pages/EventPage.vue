@@ -7,8 +7,8 @@ import ThemeToggle from '../partials/ThemeToggle.vue'
 import Carousel from '../partials/Carousel.vue'
 import Divider from '../partials/Divider.vue'
 import Footer from '../partials/Footer.vue'
+import DEFAULT_LOGO_URL from '../images/rose-logo.webp'
 
-const DEFAULT_LOGO_URL = 'https://aardvark-cdn.s3.eu-west-2.amazonaws.com/RO+SE.png'
 
 const route = useRoute()
 

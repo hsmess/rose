@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import ComingSoon from './pages/ComingSoon.vue'
+import Home from './pages/Home.vue'
 import Season2026 from './pages/Season2026.vue'
 import EventPage from './pages/EventPage.vue'
 import CaddyBookPage from './pages/CaddyBookPage.vue'
@@ -20,7 +20,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: ComingSoon
+      component: Home
     },
     {
       path: '/2026',

@@ -8,7 +8,7 @@ Originally based on the Cruip "DevFolio" template.
 
 | Path | Page |
 | --- | --- |
-| `/` | ROSE 2027 coming soon page (`ComingSoon.vue`) |
+| `/` | Home page from Sanity (`Home.vue`). Switches to `ComingSoon.vue` when "Show the Coming Soon page instead" is ticked on the Home Page document |
 | `/2026` | Archived 2026 season one-pager (`Season2026.vue`) |
 | `/events/:slug` | Event page, content from Sanity (`EventPage.vue`) |
 | `/:slug` | Vanity redirect to `/events/:slug`, e.g. `/ripley-26` |
@@ -55,7 +55,10 @@ Changes made in Sanity do not need a site deploy. The site reads Sanity live fro
 Document types in `studio/schemaTypes/`:
 
 - **Event**: powers `/events/:slug` (logo, date, location, status, carousel images, sections, registration URL).
-- **Coming Soon Page** and **Site Settings**: singletons for the home page copy and footer links.
+- **Home Page**: singleton for the home page: top banner text, title, intro, sections (body text and tables), signup copy, and an optional featured-event override. The "Next event" card shows the featured event if set, otherwise the soonest event dated today or later (hidden if none), using its first carousel image. Tick **Show the Coming Soon page instead** to swap the whole page for the coming soon page.
+- **Coming Soon Page** and **Site Settings**: singletons for the coming soon copy and footer links.
+
+To load the initial home page copy: `cd studio && node seed/homePage.mjs && npx sanity dataset import seed/homePage.ndjson production --replace` (overwrites the Home Page document).
 - **Caddy Book Page**: one document per hole sign image. Layout (`p` or `g`), hole number and image.
 
 ### Caddy book

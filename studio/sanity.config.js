@@ -6,7 +6,7 @@ import CaddyBookUpload from './tools/CaddyBookUpload'
 
 const caddyBookTool = { name: 'caddy-book', title: 'Caddy Book Upload', component: CaddyBookUpload }
 
-const singletonTypes = new Set(['siteSettings', 'comingSoonPage'])
+const singletonTypes = new Set(['siteSettings', 'homePage', 'comingSoonPage'])
 
 export default defineConfig({
   name: 'default',
@@ -30,6 +30,14 @@ export default defineConfig({
                 S.document()
                   .schemaType('siteSettings')
                   .documentId('siteSettings')
+              ),
+            S.listItem()
+              .title('Home Page')
+              .id('homePage')
+              .child(
+                S.document()
+                  .schemaType('homePage')
+                  .documentId('homePage')
               ),
             S.listItem()
               .title('Coming Soon Page')

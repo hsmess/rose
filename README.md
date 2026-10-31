@@ -10,6 +10,7 @@ Originally based on the Cruip "DevFolio" template.
 | --- | --- |
 | `/` | Home page from Sanity (`Home.vue`). Switches to `ComingSoon.vue` when "Show the Coming Soon page instead" is ticked on the Home Page document |
 | `/2026` | Archived 2026 season one-pager (`Season2026.vue`) |
+| `/waiver/:slug` | Waiver text page from Sanity (`Waiver.vue`). `/waiver` redirects to `/waiver/standard` |
 | `/events/:slug` | Event page, content from Sanity (`EventPage.vue`) |
 | `/:slug` | Vanity redirect to `/events/:slug`, e.g. `/ripley-26` |
 | `/live-caddy-book/{p\|g}/h{n}` | Caddy book hole page (`CaddyBookPage.vue`) |
@@ -59,6 +60,7 @@ Document types in `studio/schemaTypes/`:
 - **Coming Soon Page** and **Site Settings**: singletons for the coming soon copy and footer links.
 
 To load the initial home page copy: `cd studio && node seed/homePage.mjs && npx sanity dataset import seed/homePage.ndjson production --replace` (overwrites the Home Page document).
+- **Waiver**: one document per waiver, served at `/waiver/{slug}`. Use slug `standard` for the default. Intro plus heading/paragraph sections.
 - **Caddy Book Page**: one document per hole sign image. Layout (`p` or `g`), hole number and image.
 
 ### Caddy book

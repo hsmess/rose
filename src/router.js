@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import Season2026 from './pages/Season2026.vue'
 import EventPage from './pages/EventPage.vue'
+import Waiver from './pages/Waiver.vue'
 import CaddyBookPage from './pages/CaddyBookPage.vue'
 
 const routerHistory = createWebHistory()
@@ -29,6 +30,14 @@ const router = createRouter({
     {
       path: '/events/:slug',
       component: EventPage
+    },
+    {
+      path: '/waiver',
+      redirect: '/waiver/standard'
+    },
+    {
+      path: '/waiver/:slug',
+      component: Waiver
     },
     {
       // Printed on the tee signs - do not change this URL format.

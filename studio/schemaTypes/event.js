@@ -30,6 +30,14 @@ export default {
       type: 'datetime',
     },
     {
+      name: 'hideTime',
+      title: 'Hide time',
+      description: 'Only show the date on the event page, not the time.',
+      type: 'boolean',
+      initialValue: false,
+      hidden: ({ parent }) => !parent?.date,
+    },
+    {
       name: 'location',
       title: 'Location',
       type: 'string',

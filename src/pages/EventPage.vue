@@ -22,6 +22,7 @@ const QUERY = `*[_type == "event" && slug.current == $slug][0]{
   slug,
   logo,
   date,
+  hideTime,
   location,
   status,
   summary,
@@ -61,8 +62,7 @@ const formattedDate = computed(() => {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
+    ...(event.value.hideTime ? {} : { hour: 'numeric', minute: '2-digit' }),
   }).format(new Date(event.value.date))
 })
 

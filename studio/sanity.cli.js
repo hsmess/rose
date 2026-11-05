@@ -3,4 +3,5 @@ export default {
     projectId: 'ylota33v',
     dataset: 'production',
   },
+  studioHost: 'ratatoskr',
 }

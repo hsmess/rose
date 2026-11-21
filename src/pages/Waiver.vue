@@ -78,7 +78,7 @@ watch(() => route.params.slug, (slug) => loadWaiver(slug))
 
                 <div class="text-center space-y-3">
                   <router-link to="/">
-                    <img class="mx-auto rounded-2xl" :src="roseLogo" width="96" height="96" alt="ROSE" />
+                    <router-link to="/" aria-label="ROSE home"><img class="mx-auto rounded-2xl" :src="roseLogo" width="96" height="96" alt="ROSE" /></router-link>
                   </router-link>
                   <h1 class="font-inter-tight font-bold text-gray-800 dark:text-gray-100 text-3xl sm:text-4xl">
                     {{ waiver.title }}

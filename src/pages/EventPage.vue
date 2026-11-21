@@ -6,6 +6,7 @@ import { sanityClient, urlForImage } from '../lib/sanity'
 import ThemeToggle from '../partials/ThemeToggle.vue'
 import Carousel from '../partials/Carousel.vue'
 import Divider from '../partials/Divider.vue'
+import Breadcrumbs from '../partials/Breadcrumbs.vue'
 import Footer from '../partials/Footer.vue'
 import DEFAULT_LOGO_URL from '../images/rose-logo.webp'
 
@@ -28,7 +29,8 @@ const QUERY = `*[_type == "event" && slug.current == $slug][0]{
   summary,
   carouselImages,
   sections[]{ heading, body, image, hideImageOnMobile },
-  registrationUrl
+  registrationUrl,
+  "season": *[_type == "season" && references(^._id)][0]{ title, "slug": slug.current }
 }`
 
 const loadEvent = async (slug) => {
@@ -64,6 +66,13 @@ const formattedDate = computed(() => {
     year: 'numeric',
     ...(event.value.hideTime ? {} : { hour: 'numeric', minute: '2-digit' }),
   }).format(new Date(event.value.date))
+})
+
+const breadcrumbs = computed(() => {
+  const items = [{ label: 'Home', to: '/' }]
+  if (event.value?.season?.slug) items.push({ label: event.value.season.title, to: `/${event.value.season.slug}` })
+  items.push({ label: event.value?.title || '' })
+  return items
 })
 
 const logoUrl = computed(() => {
@@ -111,11 +120,13 @@ const logoUrl = computed(() => {
               <template v-else-if="event">
 
                 <div class="space-y-3">
-                  <img
-                    :src="logoUrl"
-                    alt="Event logo"
-                    class="w-20 h-20 rounded-2xl shadow-lg object-cover mx-auto mb-1"
-                  />
+                  <router-link to="/" class="block w-20 mx-auto mb-1" aria-label="ROSE home">
+                    <img
+                      :src="logoUrl"
+                      alt="Event logo"
+                      class="w-20 h-20 rounded-2xl shadow-lg object-cover"
+                    />
+                  </router-link>
 
                   <div v-if="event.status === 'pending'" class="flex justify-center">
                     <span class="inline-flex items-center gap-1.5 text-xs font-medium text-rose-red bg-rose-red/10 dark:bg-rose-red/15 px-3 py-1 rounded-full">
@@ -127,6 +138,8 @@ const logoUrl = computed(() => {
                   <h1 class="font-inter-tight font-bold text-gray-800 dark:text-gray-100 text-3xl sm:text-4xl text-center">
                     {{ event.title }}
                   </h1>
+
+                  <Breadcrumbs :items="breadcrumbs" center />
 
                   <span class="block w-14 h-1 rounded-full bg-linear-to-r from-rose-red to-rose-green mx-auto"></span>
 

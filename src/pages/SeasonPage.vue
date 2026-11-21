@@ -6,6 +6,7 @@ import { sanityClient, urlForImage } from '../lib/sanity'
 import ThemeToggle from '../partials/ThemeToggle.vue'
 import Footer from '../partials/Footer.vue'
 import SeasonCalendar from '../partials/SeasonCalendar.vue'
+import Breadcrumbs from '../partials/Breadcrumbs.vue'
 import roseLogo from '../images/rose-logo.webp'
 
 const route = useRoute()
@@ -79,6 +80,7 @@ const imageUrl = computed(() =>
                   <h1 class="font-inter-tight font-bold text-gray-800 dark:text-gray-100 text-3xl sm:text-4xl">
                     {{ season.title }}
                   </h1>
+                  <Breadcrumbs :items="[{ label: 'Home', to: '/' }, { label: season.title }]" center />
                 </div>
 
                 <img

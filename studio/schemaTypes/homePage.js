@@ -66,6 +66,13 @@ export default {
               type: 'array',
               of: [{ type: 'block' }, { type: 'simpleTable' }],
             },
+            {
+              name: 'showCalendarAfter',
+              title: 'Show the season calendar after this section',
+              description: 'Only one section should have this on. If none do, the calendar goes after the last section.',
+              type: 'boolean',
+              initialValue: false,
+            },
           ],
           preview: { select: { title: 'heading' } },
         },

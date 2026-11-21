@@ -18,7 +18,7 @@ const QUERY = `*[_type == "homePage"][0]{
   title,
   updated,
   intro,
-  sections[]{ heading, body },
+  sections[]{ heading, body, showCalendarAfter },
   signupHeading,
   signupText,
   "currentSeason": currentSeason->{
@@ -50,6 +50,21 @@ onMounted(async () => {
 const components = { types: { simpleTable: SimpleTable } }
 
 const nextEvent = computed(() => page.value?.nextEvent || null)
+
+// Sections in order, with the season calendar inserted after the one flagged "show calendar after"
+// (or at the end of the sections if none is flagged)
+const blocks = computed(() => {
+  const sections = (page.value?.sections || []).map((section) => ({ type: 'section', section }))
+  if (!page.value?.currentSeason) return sections
+  const flagged = sections.findIndex((b) => b.section.showCalendarAfter)
+  const insertAt = flagged === -1 ? sections.length : flagged + 1
+  sections.splice(insertAt, 0, { type: 'calendar' })
+  return sections
+})
+
+const scrollToCalendar = () => {
+  document.getElementById('calendar')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 const eventImageUrl = computed(() =>
   nextEvent.value?.image
@@ -106,21 +121,6 @@ const eventDate = computed(() => {
                   <p v-if="page.updated" class="text-xs text-gray-500 dark:text-gray-400">{{ page.updated }}</p>
                 </div>
 
-                <section v-if="page.currentSeason" class="space-y-4">
-                  <div class="flex items-baseline justify-between gap-3">
-                    <h2 class="font-inter-tight text-2xl font-semibold text-gray-800 dark:text-gray-100">
-                      {{ page.currentSeason.title }}
-                    </h2>
-                    <router-link
-                      :to="`/${page.currentSeason.slug}`"
-                      class="text-sm font-medium text-gray-800 dark:text-gray-200 underline underline-offset-2 whitespace-nowrap"
-                    >
-                      Season page →
-                    </router-link>
-                  </div>
-                  <SeasonCalendar :events="page.currentSeason.events" hide-past />
-                </section>
-
                 <router-link
                   v-if="nextEvent"
                   :to="`/events/${nextEvent.slug}`"
@@ -137,22 +137,48 @@ const eventDate = computed(() => {
                   </div>
                 </router-link>
 
+                <p v-if="page.currentSeason" class="text-center -mt-6">
+                  <a
+                    href="#calendar"
+                    class="text-sm font-medium text-gray-800 dark:text-gray-200 underline underline-offset-2"
+                    @click.prevent="scrollToCalendar"
+                  >
+                    Show all event dates
+                  </a>
+                </p>
+
                 <div v-if="page.intro?.length" class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
                   <PortableText :value="page.intro" />
                 </div>
 
-                <section
-                  v-for="(section, index) in page.sections || []"
-                  :key="index"
-                  class="border-t border-gray-200 dark:border-gray-700 pt-8"
-                >
-                  <h2 v-if="section.heading" class="font-inter-tight text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-3">
-                    {{ section.heading }}
-                  </h2>
-                  <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
-                    <PortableText :value="section.body" :components="components" />
-                  </div>
-                </section>
+                <template v-for="(block, index) in blocks" :key="index">
+                  <section
+                    v-if="block.type === 'section'"
+                    class="border-t border-gray-200 dark:border-gray-700 pt-8"
+                  >
+                    <h2 v-if="block.section.heading" class="font-inter-tight text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-3">
+                      {{ block.section.heading }}
+                    </h2>
+                    <div class="prose prose-sm dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
+                      <PortableText :value="block.section.body" :components="components" />
+                    </div>
+                  </section>
+
+                  <section v-else id="calendar" class="border-t border-gray-200 dark:border-gray-700 pt-8 space-y-4 scroll-mt-6">
+                    <div class="flex items-baseline justify-between gap-3">
+                      <h2 class="font-inter-tight text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                        {{ page.currentSeason.title }} dates
+                      </h2>
+                      <router-link
+                        :to="`/${page.currentSeason.slug}`"
+                        class="text-sm font-medium text-gray-800 dark:text-gray-200 underline underline-offset-2 whitespace-nowrap"
+                      >
+                        Season page →
+                      </router-link>
+                    </div>
+                    <SeasonCalendar :events="page.currentSeason.events" hide-past />
+                  </section>
+                </template>
 
                 <section class="border-t border-gray-200 dark:border-gray-700 pt-8 pb-8">
                   <h2 class="font-inter-tight text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-2">

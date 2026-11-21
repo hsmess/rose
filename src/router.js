@@ -3,6 +3,7 @@ import Home from './pages/Home.vue'
 import Season2026 from './pages/Season2026.vue'
 import EventPage from './pages/EventPage.vue'
 import Waiver from './pages/Waiver.vue'
+import SeasonPage from './pages/SeasonPage.vue'
 import CaddyBookPage from './pages/CaddyBookPage.vue'
 
 const routerHistory = createWebHistory()
@@ -43,6 +44,11 @@ const router = createRouter({
       // Printed on the tee signs - do not change this URL format.
       path: '/live-caddy-book/:layout(p|g)/h:hole(\\d+)',
       component: CaddyBookPage
+    },
+    {
+      // Season pages, e.g. /rose-winter. Falls back to the event vanity redirect if no season matches.
+      path: '/:slug(rose-[^/]+)',
+      component: SeasonPage
     },
     {
       // Short vanity links, e.g. /ripley-26 -> /events/ripley-26

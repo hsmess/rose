@@ -38,6 +38,12 @@ export default {
       hidden: ({ parent }) => !parent?.date,
     },
     {
+      name: 'calendarLabel',
+      title: 'Calendar label',
+      description: 'Short name shown on the season calendar, e.g. "Gilly\'s". Falls back to the title.',
+      type: 'string',
+    },
+    {
       name: 'location',
       title: 'Location',
       type: 'string',

@@ -139,7 +139,7 @@ const logoUrl = computed(() => {
                   </p>
                 </div>
 
-                <Carousel :images="event.carouselImages" />
+                <Carousel v-if="event.carouselImages?.length" :images="event.carouselImages" />
 
                 <div v-if="event.sections?.length" class="space-y-10">
                   <template v-for="(section, index) in event.sections" :key="index">

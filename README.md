@@ -11,6 +11,7 @@ Originally based on the Cruip "DevFolio" template.
 | `/` | Home page from Sanity (`Home.vue`). Switches to `ComingSoon.vue` when "Show the Coming Soon page instead" is ticked on the Home Page document |
 | `/2026` | Archived 2026 season one-pager (`Season2026.vue`) |
 | `/waiver/:slug` | Waiver text page from Sanity (`Waiver.vue`). `/waiver` redirects to `/waiver/standard` |
+| `/rose-{season}` | Season page, e.g. `/rose-winter`: schedule image + weekend calendar (`SeasonPage.vue`) |
 | `/events/:slug` | Event page, content from Sanity (`EventPage.vue`) |
 | `/:slug` | Vanity redirect to `/events/:slug`, e.g. `/ripley-26` |
 | `/live-caddy-book/{p\|g}/h{n}` | Caddy book hole page (`CaddyBookPage.vue`) |
@@ -61,6 +62,9 @@ Document types in `studio/schemaTypes/`:
 
 To load the initial home page copy: `cd studio && node seed/homePage.mjs && npx sanity dataset import seed/homePage.ndjson production --replace` (overwrites the Home Page document).
 - **Waiver**: one document per waiver, served at `/waiver/{slug}`. Use slug `standard` for the default. Intro plus heading/paragraph sections.
+- **Season**: powers `/rose-winter` etc. Slug must start with `rose-`. Holds the schedule image, intro and the list of events. The
+  weekend-only calendar is built from those events' dates, and each date links to `/events/:slug`. Set the **Current season** on the
+  Home Page document to show that season's calendar near the top of the home page. Events have an optional **Calendar label** for short names.
 - **Caddy Book Page**: one document per hole sign image. Layout (`p` or `g`), hole number and image.
 
 ### Caddy book

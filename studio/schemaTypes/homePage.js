@@ -28,6 +28,14 @@ export default {
       type: 'string',
     },
     {
+      name: 'currentSeason',
+      title: 'Current season',
+      description:
+        'Shows this season\'s weekend calendar near the top of the home page, with a link to the season page. Leave empty to hide it.',
+      type: 'reference',
+      to: [{ type: 'season' }],
+    },
+    {
       name: 'featuredEvent',
       title: 'Featured event (optional override)',
       description:

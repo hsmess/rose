@@ -6,6 +6,7 @@ import ThemeToggle from '../partials/ThemeToggle.vue'
 import Footer from '../partials/Footer.vue'
 import SignupForm from '../partials/SignupForm.vue'
 import SimpleTable from '../partials/SimpleTable.vue'
+import SeasonCalendar from '../partials/SeasonCalendar.vue'
 import ComingSoon from './ComingSoon.vue'
 import roseLogo from '../images/rose-logo.webp'
 
@@ -20,6 +21,11 @@ const QUERY = `*[_type == "homePage"][0]{
   sections[]{ heading, body },
   signupHeading,
   signupText,
+  "currentSeason": currentSeason->{
+    title,
+    "slug": slug.current,
+    "events": events[]->{ title, calendarLabel, "slug": slug.current, date, status }
+  },
   "nextEvent": coalesce(
     featuredEvent->{ ${EVENT_FIELDS} },
     *[_type == "event" && defined(date) && dateTime(date) >= now()] | order(date asc)[0]{ ${EVENT_FIELDS} }
@@ -99,6 +105,21 @@ const eventDate = computed(() => {
                   </h1>
                   <p v-if="page.updated" class="text-xs text-gray-500 dark:text-gray-400">{{ page.updated }}</p>
                 </div>
+
+                <section v-if="page.currentSeason" class="space-y-4">
+                  <div class="flex items-baseline justify-between gap-3">
+                    <h2 class="font-inter-tight text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                      {{ page.currentSeason.title }}
+                    </h2>
+                    <router-link
+                      :to="`/${page.currentSeason.slug}`"
+                      class="text-sm font-medium text-gray-800 dark:text-gray-200 underline underline-offset-2 whitespace-nowrap"
+                    >
+                      Season page →
+                    </router-link>
+                  </div>
+                  <SeasonCalendar :events="page.currentSeason.events" hide-past />
+                </section>
 
                 <router-link
                   v-if="nextEvent"
